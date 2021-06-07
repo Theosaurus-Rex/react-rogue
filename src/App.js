@@ -4,7 +4,7 @@ import ReactRogue from './ReactRogue'
 const App = () => {
   return (
     <div className="App">
-      <ReactRogue />
+      <ReactRogue width={40} height={40} tileSize={16}/>
     </div>
   )
 }
