@@ -1,8 +1,11 @@
 import React from 'react'
+import ReactRogue from './ReactRogue'
 
 const App = () => {
   return (
-    <div className="App">Hello World</div>
+    <div className="App">
+      <ReactRogue />
+    </div>
   )
 }
 
