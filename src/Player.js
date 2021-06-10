@@ -5,6 +5,7 @@ class Player {
         this.size = size
     }
 
+    //Increment position by x and y axis values
     move(dx, dy) {
         this.x += dx 
         this.y += dy
