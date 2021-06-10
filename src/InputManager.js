@@ -1,9 +1,11 @@
 class InputManager {
     observers = []
 
+    //Start taking inputs
     subscribe(fn){
         this.observers.push(fn)
     }
+    //Stop taking inputs
     unsubscribe(fn){
         this.observers = this.observers.filter(subscriber => subscriber !== fn)
     }
@@ -12,6 +14,7 @@ class InputManager {
         this.observers.forEach(subscriber => subscriber(action, data))
     }
 
+    //Handle directional movement of character
     handleKeys = event => {
         event.preventDefault()
         switch (event.keyCode) {

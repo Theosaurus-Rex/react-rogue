@@ -1,10 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react' 
 import InputManager from './InputManager'
 import Player from './Player'
+import World from './World'
 
 const ReactRogue = ({width, height, tileSize}) => {
     const canvasRef = React.useRef(null)
     const [player, setPlayer] = useState(new Player(1, 2, tileSize))
+    const [world, setWorld] = useState(new World(width, height, tileSize))
     let inputManager = new InputManager()
     const handleInput = (action, data) => {
         console.log(`handle input: ${action}:${JSON.stringify(data)}`)
@@ -31,6 +33,9 @@ const ReactRogue = ({width, height, tileSize}) => {
         const ctx = canvasRef.current.getContext('2d')
         // Clear entire canvas
         ctx.clearRect(0, 0, width*tileSize, height * tileSize)
+        //Draw world before drawing player
+        world.draw(ctx)
+
         player.draw(ctx)
     })
     return (
