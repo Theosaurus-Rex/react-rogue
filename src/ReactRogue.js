@@ -23,6 +23,7 @@ const ReactRogue = ({width, height, tileSize}) => {
         let newWorld = new World()
         Object.assign(newWorld, world)
         newWorld.createCellularMap()
+        newWorld.moveToSpace(world.player)
         setWorld(newWorld)
     }, [])
 
