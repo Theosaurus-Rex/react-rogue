@@ -17,6 +17,13 @@ class Player {
         context.font = '16px Helvetica'
         context.fillText('@', this.x * this.size, this.y * this.size)
     }
+
+    // Method for copying player to check for wall collisions
+    copyPlayer(){
+        let newPlayer = new Player()
+        Object.assign(newPlayer, this)
+        return newPlayer
+    }
 }
 
 export default Player

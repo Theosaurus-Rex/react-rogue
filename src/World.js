@@ -20,8 +20,23 @@ class World {
         return this.entities[0]
     }
 
+    isWall(x, y) {
+        return(
+            this.worldmap[x] === undefined 
+            || this.worldmap[y] === undefined 
+            || this.worldmap[x][y] === 1
+        )
+    }
+
     movePlayer(dx, dy){
+        let tempPlayer = this.player.copyPlayer()
+        tempPlayer.move(dx, dy)
+        if(this.isWall(tempPlayer.x, tempPlayer.y)){
+            console.log(`Way blocked at ${tempPlayer.x}:${tempPlayer.y}!`)
+        } else {
         this.player.move(dx, dy)
+        }
+
     }
 
     createCellularMap() {

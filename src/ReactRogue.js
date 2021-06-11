@@ -11,7 +11,7 @@ const ReactRogue = ({width, height, tileSize}) => {
     const handleInput = (action, data) => {
         console.log(`handle input: ${action}:${JSON.stringify(data)}`)
         let newWorld = new World()
-        //Copy properties from player to newPlayer
+        //Copy properties from world to newWorld
         Object.assign(newWorld, world)
         newWorld.movePlayer(data.x, data.y)
         setWorld(newWorld)
