@@ -5,17 +5,26 @@ import World from './World'
 
 const ReactRogue = ({width, height, tileSize}) => {
     const canvasRef = React.useRef(null)
-    const [player, setPlayer] = useState(new Player(1, 2, tileSize))
+    // const [player, setPlayer] = useState(new Player(1, 2, tileSize))
     const [world, setWorld] = useState(new World(width, height, tileSize))
     let inputManager = new InputManager()
     const handleInput = (action, data) => {
         console.log(`handle input: ${action}:${JSON.stringify(data)}`)
-        let newPlayer = new Player()
+        let newWorld = new World()
         //Copy properties from player to newPlayer
-        Object.assign(newPlayer, player)
-        newPlayer.move(data.x, data.y)
-        setPlayer(newPlayer)
+        Object.assign(newWorld, world)
+        newWorld.movePlayer(data.x, data.y)
+        setWorld(newWorld)
     }
+
+    // Second argument makes it only render once
+    useEffect(() => {
+        console.log("Create Map")
+        let newWorld = new World()
+        Object.assign(newWorld, world)
+        newWorld.createCellularMap()
+        setWorld(newWorld)
+    }, [])
 
     useEffect(() => {
         console.log('Bind input')
@@ -35,8 +44,6 @@ const ReactRogue = ({width, height, tileSize}) => {
         ctx.clearRect(0, 0, width*tileSize, height * tileSize)
         //Draw world before drawing player
         world.draw(ctx)
-
-        player.draw(ctx)
     })
     return (
         <canvas 
