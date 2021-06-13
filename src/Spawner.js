@@ -22,8 +22,8 @@ class Spawner {
     spawnLoot(spawnCount){
         this.spawn(spawnCount, () => {
             return new Loot(
-                getRandomInt(this.world.width), 
-                getRandomInt(this.world.height), 
+                getRandomInt(this.world.width - 2), 
+                getRandomInt(this.world.height - 2), 
                 this.world.tilesize, 
                 lootTable[getRandomInt(lootTable.length)]
             )
