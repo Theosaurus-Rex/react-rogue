@@ -1,4 +1,4 @@
-import {Map} from 'rot-js'
+import {Map} from '../node_modules/rot-js/dist/rot.min.js'
 import Player from './Player'
 
 class World {
