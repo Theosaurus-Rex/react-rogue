@@ -13,6 +13,8 @@ class Player extends Entity {
 
     //Increment position by x and y axis values
     move(dx, dy) {
+        // Stop the player from moving if they are dead
+        if (this.attributes.health <= 0) return
         this.x += dx 
         this.y += dy
     }
