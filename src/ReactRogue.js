@@ -5,7 +5,6 @@ import World from './World'
 
 const ReactRogue = ({width, height, tileSize}) => {
     const canvasRef = React.useRef(null)
-    // const [player, setPlayer] = useState(new Player(1, 2, tileSize))
     const [world, setWorld] = useState(new World(width, height, tileSize))
     let inputManager = new InputManager()
     const handleInput = (action, data) => {
@@ -17,6 +16,7 @@ const ReactRogue = ({width, height, tileSize}) => {
         setWorld(newWorld)
     }
 
+    // Render the starting level
     // Second argument makes it only render once
     useEffect(() => {
         console.log("Create Map")
@@ -56,7 +56,7 @@ const ReactRogue = ({width, height, tileSize}) => {
                 ref={canvasRef}
                 width={width * tileSize} 
                 height={height * tileSize} 
-                style={{border: '1px solid black', background: 'DimGray'}}>
+                style={{border: '1px solid black', background: 'Gray'}}>
             </canvas>
             {/* // Player inventory */}
             <ul>
