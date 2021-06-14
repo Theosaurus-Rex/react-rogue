@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react' 
+import React, { useEffect, useState } from 'react' 
 import InputManager from './InputManager'
-import Player from './Player'
 import Spawner from './Spawner'
 import World from './World'
 
@@ -28,6 +27,7 @@ const ReactRogue = ({width, height, tileSize}) => {
         let spawner = new Spawner(newWorld)
         spawner.spawnLoot(4)
         spawner.spawnMonsters(6)
+        spawner.spawnStairs()
         setWorld(newWorld)
     }, [])
 

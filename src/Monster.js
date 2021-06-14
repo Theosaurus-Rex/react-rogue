@@ -2,7 +2,7 @@ import Entity from './Entity'
 
 class Monster extends Entity {
     action(verb, world) {
-        if(verb == 'bump') {
+        if(verb === 'bump') {
             // Attack monster
             world.addToHistory(`Player attacks ${this.attributes.name}!`)
             // TODO: Add formula for different player attack values based on weapons
