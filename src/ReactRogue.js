@@ -26,7 +26,8 @@ const ReactRogue = ({width, height, tileSize}) => {
         newWorld.createCellularMap()
         newWorld.moveToSpace(world.player)
         let spawner = new Spawner(newWorld)
-        spawner.spawnLoot(10)
+        spawner.spawnLoot(4)
+        spawner.spawnMonsters(6)
         setWorld(newWorld)
     }, [])
 
