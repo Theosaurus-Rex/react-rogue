@@ -7,6 +7,7 @@ class World {
         this.height = height
         this.tilesize = tilesize
         this.entities = [new Player(0,0,16)]
+        this.history = ['You enter the dungeon...', '---']
         //Create a 2 dimensional array
         this.worldmap = new Array(this.width)
         // For each tile in the width, create an array of the length of height (columns)
@@ -105,6 +106,11 @@ class World {
     drawWall(context, x, y) {
         context.fillStyle = '#000'
         context.fillRect(x * this.tilesize, y * this.tilesize, this.tilesize, this.tilesize)
+    }
+
+    addToHistory(history) {
+        this.history.push(history)
+        if(this.history.length > 5) this.history.shift()
     }
 }
 
