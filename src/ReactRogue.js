@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import InputManager from './InputManager'
 import Spawner from './Spawner'
 import World from './World'
+import './App.css';
 
 const ReactRogue = ({width, height, tileSize}) => {
     const canvasRef = React.useRef(null)
@@ -51,7 +52,7 @@ const ReactRogue = ({width, height, tileSize}) => {
         world.draw(ctx)
     })
     return (
-        <div style={{display: flex}}>
+        <div class="parent">
             <canvas 
                 ref={canvasRef}
                 width={width * tileSize} 
@@ -59,12 +60,12 @@ const ReactRogue = ({width, height, tileSize}) => {
                 style={{border: '1px solid black', background: 'Gray'}}>
             </canvas>
             {/* // Player inventory */}
-            <ul style={{margin: 10}}>
+            <ul>
                 {world.player.inventory.map((item, index) => (<li key={index}>{item.attributes.name}</li>))}
             </ul>
 
             {/* // World History Log */}
-            <ul style={{margin: 10}}>
+            <ul>
                 {world.history.map((item, index) => (<li key={index}>{item}</li>))}
             </ul>
         </div>
