@@ -51,7 +51,7 @@ const ReactRogue = ({width, height, tileSize}) => {
         world.draw(ctx)
     })
     return (
-        <div>
+        <div style={{display: flex}}>
             <canvas 
                 ref={canvasRef}
                 width={width * tileSize} 
@@ -59,12 +59,12 @@ const ReactRogue = ({width, height, tileSize}) => {
                 style={{border: '1px solid black', background: 'Gray'}}>
             </canvas>
             {/* // Player inventory */}
-            <ul>
+            <ul style={{margin: 10px}}>
                 {world.player.inventory.map((item, index) => (<li key={index}>{item.attributes.name}</li>))}
             </ul>
 
             {/* // World History Log */}
-            <ul>
+            <ul style={{margin: 10px}}>
                 {world.history.map((item, index) => (<li key={index}>{item}</li>))}
             </ul>
         </div>
