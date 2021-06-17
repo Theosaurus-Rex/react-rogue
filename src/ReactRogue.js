@@ -59,12 +59,12 @@ const ReactRogue = ({width, height, tileSize}) => {
                 style={{border: '1px solid black', background: 'Gray'}}>
             </canvas>
             {/* // Player inventory */}
-            <ul style={{margin: 10px}}>
+            <ul style={{margin: 10}}>
                 {world.player.inventory.map((item, index) => (<li key={index}>{item.attributes.name}</li>))}
             </ul>
 
             {/* // World History Log */}
-            <ul style={{margin: 10px}}>
+            <ul style={{margin: 10}}>
                 {world.history.map((item, index) => (<li key={index}>{item}</li>))}
             </ul>
         </div>
